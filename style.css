@@ -1,0 +1,177 @@
+:root {
+  --primary-blue: #2463ef;
+  --primary-blue-dark: #1651df;
+  --text-primary: #112347;
+  --text-secondary: #8494b1;
+  --background: #fdfefe;
+  --card-shadow: 0 22px 44px rgba(49, 103, 195, 0.1);
+  --radius-large: 40px;
+}
+
+* { box-sizing: border-box; }
+
+html { min-height: 100%; background: var(--background); }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text-primary);
+  background: var(--background);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+.download-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.ambient {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ambient-blue {
+  top: 108px;
+  left: calc(50% - 280px);
+  width: 300px;
+  height: 300px;
+  background: rgba(172, 203, 255, 0.34);
+}
+
+.ambient-yellow {
+  top: 355px;
+  left: calc(50% + 102px);
+  width: 260px;
+  height: 260px;
+  background: rgba(255, 218, 120, 0.28);
+}
+
+.content-shell {
+  width: min(100% - 32px, 480px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: max(24px, env(safe-area-inset-top)) 0 max(20px, env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eyebrow {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  margin: 0 0 20px;
+  color: #9cabc2;
+}
+
+.eyebrow p {
+  margin: 0;
+  text-align: center;
+  font-size: 11px;
+  line-height: 2.15;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+}
+
+.eyebrow-line { width: 42px; height: 1px; background: #9cabc2; opacity: 0.72; }
+
+.app-card {
+  width: min(72vw, 330px);
+  padding: 38px 22px 32px;
+  border-radius: var(--radius-large);
+  background: rgba(255, 255, 255, 0.93);
+  box-shadow: var(--card-shadow);
+  text-align: center;
+}
+
+.app-icon {
+  display: block;
+  width: min(55vw, 225px);
+  aspect-ratio: 1;
+  margin: 0 auto 22px;
+  border-radius: 25%;
+  object-fit: cover;
+  box-shadow: 0 14px 26px rgba(37, 91, 184, 0.16);
+}
+
+.app-card h1 { margin: 0; font-size: clamp(52px, 14vw, 72px); line-height: 0.98; letter-spacing: -0.065em; font-weight: 750; }
+.subtitle { margin: 16px 0 0; color: var(--text-secondary); font-size: 22px; letter-spacing: 0.04em; }
+.benefits { margin: 31px 0 0; color: #8c9bb6; font-size: 14px; letter-spacing: 0.24em; }
+.benefits span { margin: 0 8px; color: #b6c1d2; }
+
+.signature { height: 104px; padding-top: 24px; text-align: center; color: #b5cdf9; }
+.signature span { display: block; transform: rotate(-8deg); font-family: "Segoe Script", "Bradley Hand", cursive; font-size: 46px; line-height: 0.85; font-style: italic; letter-spacing: -0.08em; opacity: 0.82; }
+.signature i { display: block; width: 160px; height: 4px; margin: 9px auto 0; border-radius: 100%; background: #f8c63e; transform: rotate(-14deg); }
+
+.download-options { width: 100%; display: grid; gap: 16px; }
+
+.download-button {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 23px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 140ms ease, filter 140ms ease, box-shadow 140ms ease;
+  user-select: none;
+}
+
+.download-button:active { transform: scale(0.98); filter: brightness(0.98); }
+.download-button:focus-visible { outline: 3px solid rgba(36, 99, 239, 0.36); outline-offset: 4px; }
+.android-button { color: #fff; background: linear-gradient(105deg, var(--primary-blue), #1b5bec); box-shadow: 0 13px 28px rgba(36, 99, 239, 0.2); }
+.ios-button { color: var(--text-primary); background: rgba(255, 255, 255, 0.9); border: 1px solid #edf1f7; box-shadow: 0 11px 28px rgba(80, 112, 167, 0.11); }
+
+.platform-icon { width: 45px; flex: 0 0 45px; display: grid; place-items: center; }
+.platform-icon svg { width: 31px; height: 38px; display: block; }
+.android-icon svg { fill: #fff; }
+.apple-icon svg { fill: #142341; }
+.button-divider { width: 1px; height: 28px; margin: 0 28px 0 21px; background: currentColor; opacity: 0.32; }
+.button-label { flex: 1; font-size: clamp(19px, 5.1vw, 26px); font-weight: 600; letter-spacing: -0.025em; white-space: nowrap; }
+.chevron { width: 14px; margin-left: 16px; font-family: Arial, sans-serif; font-size: 42px; font-weight: 300; line-height: 0.5; }
+
+.page-footer { margin-top: auto; padding-top: 34px; text-align: center; color: #a3b1c7; }
+.footer-brand { display: flex; align-items: center; justify-content: center; gap: 18px; font-size: 15px; letter-spacing: 0.32em; }
+.footer-brand span { width: 38px; height: 1px; background: currentColor; opacity: 0.65; }
+.page-footer p { margin: 14px 0 0; font-size: 10px; letter-spacing: 0.45em; text-indent: 0.45em; }
+
+@media (max-height: 760px) and (min-width: 380px) {
+  .content-shell { padding-top: 16px; }
+  .eyebrow { margin-bottom: 12px; }
+  .app-card { padding-top: 30px; padding-bottom: 27px; }
+  .app-icon { width: 170px; margin-bottom: 17px; }
+  .app-card h1 { font-size: 52px; }
+  .subtitle { margin-top: 12px; font-size: 18px; }
+  .benefits { margin-top: 23px; }
+  .signature { height: 74px; padding-top: 16px; }
+  .signature span { font-size: 38px; }
+  .download-button { min-height: 68px; }
+  .page-footer { padding-top: 22px; }
+}
+
+@media (min-width: 600px) {
+  .download-page { display: grid; place-items: center; background: #f5f8fd; }
+  .content-shell { min-height: min(100vh, 950px); padding-left: 30px; padding-right: 30px; background: var(--background); box-shadow: 0 0 80px rgba(65, 102, 158, 0.08); }
+  .ambient-blue { left: calc(50% - 340px); }
+  .ambient-yellow { left: calc(50% + 170px); }
+}
+
+/* 窄屏(≤379px)收紧按钮内固定尺寸，避免文字/箭头溢出胶囊 */
+@media (max-width: 379px) {
+  .download-button { padding: 0 18px; }
+  .platform-icon { width: 40px; flex: 0 0 40px; }
+  .button-divider { margin: 0 18px 0 14px; }
+  .button-label { font-size: 17px; }
+  .chevron { margin-left: 10px; }
+}
